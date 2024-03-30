@@ -1,7 +1,7 @@
 int my_strlen(char *str) 
 {
-    int i = 0;
-    int count = 0;
+    register int  i = 0;
+    register int count = 0;
   
     while (str[i]) 
     {
@@ -15,10 +15,10 @@ int my_strlen(char *str)
 
 char *defangIPaddr(char *address) 
 {
-    int i = 0;
-    int j = 0;
-    int len = my_strlen(address) + 1; 
-    char *res = malloc(sizeof(char) * len);
+    register i = 0;
+    register j = 0;
+    register len = my_strlen(address) + 1; 
+    register char *res = malloc(sizeof(char) * len);
     
     if (res == NULL) 
     {
