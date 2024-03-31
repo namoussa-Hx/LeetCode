@@ -1,35 +1,22 @@
-int count_words(char *str)
-{
-  int i = 0;
-  int flag = 0;
-  int count = 0;
-  
-  while(str[i])
-  {
-    if(str[i] == 32 || flag == 0)
-    {
-      count++;
-      flag = 1;
-      
-      }
-    i++;
-    }
-    return count;
-  }
 int mostWordsFound(char** sentences, int sentencesSize) 
 {
-    int i = 1;
+    int i = 0;  
+    int max = 0;
+    int count;
+    char *token;
     char **str = sentences;
-    int len = 0;
-    int max = count_words(str[0]);
-    
-    
-    while(i < sentencesSize)
-    { 
-      len = count_words(str[i]);
-      
-      if(len > max)
-      max = len;
+    const char dil[] = " ";
+    while (i < sentencesSize)
+    {
+        count  = 0;
+      token = strtok(str[i], dil);
+      while(token != NULL)
+      {
+        count++;
+        token = strtok(NULL, dil);
+        }
+        if(count > max)
+        max = count;
         
         i++;
     }
